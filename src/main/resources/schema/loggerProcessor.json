@@ -1,0 +1,127 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Definition for fields used in the logger message processor",
+  "type": "object",
+  "properties": {
+    "transactionId": {
+      "type": "string",
+      "sdk": {
+        "default": "#[attributes.headers.'x-transaction-id' default correlationId]",
+        "displayName": "Transaction ID",
+        "placement": {
+          "tab": "Advanced"
+        }
+      }
+    },
+    "muleFlowName": {
+      "type": "string",
+      "sdk": {
+        "displayName": "Flow Name",
+        "default": "#[flow.name]",
+        "example": "Add a Custom Flow Name or let MuleContext pick it for you",
+        "required": false,
+        "summary": "Mule Flow name",
+        "placement": {
+          "tab": "Advanced"
+        }
+      }
+    },
+    "message": {
+      "type": "string",
+      "sdk": {
+        "example": "Add a log message",
+        "required": true,
+        "summary": "Message to be logged"
+      }
+    },
+
+    "tracePoint": {
+      "type": "string",
+      "javaType": "org.liem.extension.logging.api.pojos.TracePoint",
+      "enum": [
+        "START",
+        "BEFORE_TRANSFORM",
+        "AFTER_TRANSFORM",
+        "BEFORE_REQUEST",
+        "AFTER_REQUEST",
+        "FLOW",
+        "END",
+        "EXCEPTION"
+      ],
+      "sdk": {
+        "default": "START",
+        "summary": "Current processing stage",
+        "expressionSupport": "NOT_SUPPORTED"
+      }
+    },
+    "priority": {
+      "type": "string",
+      "javaType": "org.liem.extension.logging.api.pojos.Priority",
+      "enum": [
+        "DEBUG",
+        "TRACE",
+        "INFO",
+        "WARN",
+        "ERROR"
+      ],
+      "sdk": {
+        "default": "INFO",
+        "summary": "Logger priority",
+        "expressionSupport": "NOT_SUPPORTED"
+      },
+      "note": "This field is mandatory. DON'T REMOVE"
+    },
+    "mimeType": {
+      "type": "string",
+      "sdk": {
+        "default": "#[output application/java --- payload.^mediaType]",
+        "example": "application/java",
+        "required": false,
+        "summary": "Payload MimeType used to format the logging",
+        "placement": {
+          "tab": "Advanced"
+        }
+      }
+    },
+    "printPayload": {
+      "type": "boolean",
+      "javaType": "boolean",
+      "sdk": {
+        "displayName": "Print Payload",
+        "expressionSupport": "NOT_SUPPORTED",
+        "default": true,
+        "example": false,
+        "required": true,
+        "summary": "NOTE: Writing the entire payload every time across your application can cause serious performance issues"
+      }
+    },
+    "payloadContent": {
+      "type": "string",
+      "javaType": "org.mule.runtime.extension.api.runtime.parameter.ParameterResolver<org.mule.runtime.api.metadata.TypedValue<java.io.InputStream>>",
+      "sdk": {
+        "default": "#[import modules::Formatter \noutput application/json \n---\nFormatter::formatNonJSON(payload)]",
+        "summary": "NOTE: Writing the entire payload every time across your application can cause serious performance issues",
+        "required": false,
+        "isPrimaryContent": true
+      }
+    },
+    "additionalDetails": {
+      "type": "string",
+      "javaType": "org.mule.runtime.extension.api.runtime.parameter.ParameterResolver<org.mule.runtime.api.metadata.TypedValue<java.io.InputStream>>",
+      "sdk": {
+        "default": "#[output application/json --- {}]",
+        "summary": "Capture any additional details like Record Count, Success Records, Failure Records, etc...",
+        "required": false,
+        "isContent": true
+      }
+    },
+    "category": {
+      "type": "string",
+      "sdk": {
+        "required": false,
+        "summary": "If not set, by default will log to the org.liem.extension.logging.CustomLogger category"
+      },
+      "note": "This field is mandatory. DON'T REMOVE"
+    }
+  }
+}
