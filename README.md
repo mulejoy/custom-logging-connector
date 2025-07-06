@@ -61,12 +61,12 @@ or increase the version in the pom.xml to publish a newer version of the asset.
 ## 1.0.0 version - Release notes
 
 **Features:**
-* Loggers to capture the Integration Pattern
 * Different attributes against a specific integration pattern
-* Log Request/Response payload content
-* Capture additional details that enriches your logging information such as functional KPIs. eg (object type processed, success record count, failed record count, skipped record count, etc..)
-* Developer decision driven to decide whether the payload needs to be printed or not? This option ensures that a large payload being printed in logs can be skipped by an informed decision from the developer.
-* Scoped loggers to capture "scope bound elapsed time". These are your go-to options for performance tracking of specific components (e.g. DB / REST Consumer calls)
+* Logs request and response payload content
+* Capture additional details that enriches your logging information such as functional KPIs, like object type processed, success record count, failed record count, and skipped record count
+* Scoped loggers to capture "scope bound elapsed time", so these are your go-to options for performance tracking of specific components, like database or REST consumer calls
+* Loggers clearly capture a Mule application's integration pattern
+* Developers can decide whether the payload needs to be printed or not, which ensures that a large payload being printed in logs can be skipped by an informed decision from the developer
 
 ## Author
 
