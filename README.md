@@ -1,19 +1,18 @@
 # Custom Logging Connector
 
-A replacement for the default Mule Logger or a JSON logger which is more descriptive, flexible and integration pattern driven logger
-that can be easily configured or modified according to the organization needs.
+This is a replacement for the default Mule Logger or a JSON logger. It is more descriptive, flexible and integration pattern driven logger that can be easily configured or modified according to the organization needs.
 
 ## Why me?
-* Logs are essential for a better operations; Developers tend to miss the right choices
-* Every developer has their own decision-making on what needs to be logged; we standardise it.
-* Mule doesn't offer OOB logging standards
-* Mandate the essential attributes to be logged to identify a transaction end-to-end
-* Performance tracking
+* Logs are essential for a better operations. Developers tend to miss the right choices.
+* Every developer has their own decision-making on what needs to be logged, so we standardized it.
+* Mule doesn't offer out-of-the-box (OOB) logging standards.
+* Mandate the essential attributes to be logged to identify a transaction end-to-end.
+* General performance tracking.
 
 ## What did we do?
-A Java SDK based Mule 4 connector has been built to overcome the industry challenges with respect to Logging in Mulesoft Integration space.
-Also, in order to maximize customization to each customer's requirements while avoiding steep Java SDK learning curves, 
-you can easily modify the output JSON data structure as well as connector configuration by editing 2 simple JSON schemas provided under:
+A Java SDK based Mule 4 connector has been built to overcome the industry challenges with respect to logging in Mulesoft.
+
+Also, this maximizes customization to each customer's requirements while avoiding steep Java SDK learning curves, so you can easily modify the output JSON data structure as well as connector configuration by editing 2 simple JSON schemas provided under:
 >/src/main/resources/schema/
 
 In a nutshell, by defining the output JSON schema as well as providing some additional SDK specific details (e.g. default values, default expressions, etc.), we can dynamically generate a module that aligns to those schemas.
@@ -41,7 +40,7 @@ _ORG_ID_ must be replaced with your respective Organization ID
 <classifier>mule-plugin</classifier>
 ```
 
-Also, ensure that your distributionManagement in pom.xml is configured with the exchange repository pointing to your organization as below
+Also, ensure that your distributionManagement in pom.xml is configured with the exchange repository pointing to your organization<br>
 ```
 <distributionManagement>
     <!-- Target Anypoint Organization Repository -->
@@ -54,8 +53,7 @@ Also, ensure that your distributionManagement in pom.xml is configured with the 
 </distributionManagement>
 ```
 
-Once the above-mentioned configurations are enabled in your pom.xml, execution of maven deploy goal _**'mvn deploy'**_ 
-should be able to publish the Connector asset to your organization.
+Once the above-mentioned configurations are enabled in your pom.xml, execution of maven deploy goal _**'mvn deploy'**_ should be able to publish the Connector asset to your organization.
 
 **IMPORTANT:** You have to manually delete the previous asset from your exchange within 7 days of deployment since you can't deploy the same version to Exchange;
 or increase the version in the pom.xml to publish a newer version of the asset.
@@ -73,4 +71,4 @@ or increase the version in the pom.xml to publish a newer version of the asset.
 ## Author
 
 ## Support disclaimer
-It won't be officially supported by MuleSoft as it is considered a custom connector. 
+It won't be officially supported by MuleSoft as it is considered a custom connector.
