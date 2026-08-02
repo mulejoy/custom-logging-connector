@@ -1,4 +1,4 @@
-package org.liem.extension.logging.patterns;
+package org.mulejoy.extension.logging.patterns;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.mule.runtime.extension.api.annotation.param.Content;
@@ -25,7 +25,6 @@ public class MESSAGING implements IntegrationPattern {
     @Summary("Print the Message Headers / Properties")
     private InputStream msgHdrs;
 
-
     @Override
     public String getSelectedIntegrationPattern() {
         return "MESSAGING";
@@ -33,17 +32,12 @@ public class MESSAGING implements IntegrationPattern {
 
     @Override
     public HashMap<String, Object> prepareData() throws IOException {
-        HashMap<String,Object> data = new HashMap<>();
+        HashMap<String, Object> data = new HashMap<>();
         data.put("pattern", this.getSelectedIntegrationPattern());
         data.put("msgHdrs", this.getMsgHdrs());
         return data;
     }
 
-    public InputStream getMsgHdrs() {
-        return msgHdrs;
-    }
-
-    public void setMsgHdrs(InputStream msgHdrs) {
-        this.msgHdrs = msgHdrs;
-    }
+    public InputStream getMsgHdrs() { return msgHdrs; }
+    public void setMsgHdrs(InputStream msgHdrs) { this.msgHdrs = msgHdrs; }
 }

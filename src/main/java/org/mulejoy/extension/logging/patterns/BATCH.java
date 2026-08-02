@@ -1,4 +1,4 @@
-package org.liem.extension.logging.patterns;
+package org.mulejoy.extension.logging.patterns;
 
 import org.mule.runtime.extension.api.annotation.param.Optional;
 import org.mule.runtime.extension.api.annotation.param.Parameter;
@@ -16,9 +16,8 @@ public class BATCH implements IntegrationPattern {
     @Parameter
     @Optional(defaultValue = "#[vars.batchRecordId default \"N/A\"]")
     @DisplayName("Batch Record ID")
-    @Summary("It tells us which record is being processed out of the batch the application currently handling. This needs to be set manually")
+    @Summary("Identifies which record is being processed in the current batch. Must be set manually.")
     private String batchRecordId;
-
 
     @Override
     public String getSelectedIntegrationPattern() {
@@ -27,17 +26,12 @@ public class BATCH implements IntegrationPattern {
 
     @Override
     public HashMap<String, Object> prepareData() {
-        HashMap<String,Object> data = new HashMap<>();
+        HashMap<String, Object> data = new HashMap<>();
         data.put("pattern", this.getSelectedIntegrationPattern());
         data.put("batchRecordId", this.getBatchRecordId());
         return data;
     }
 
-    public String getBatchRecordId() {
-        return batchRecordId;
-    }
-
-    public void setBatchRecordId(String batchRecordId) {
-        this.batchRecordId = batchRecordId;
-    }
+    public String getBatchRecordId() { return batchRecordId; }
+    public void setBatchRecordId(String batchRecordId) { this.batchRecordId = batchRecordId; }
 }

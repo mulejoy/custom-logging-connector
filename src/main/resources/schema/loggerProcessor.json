@@ -37,7 +37,7 @@
 
     "tracePoint": {
       "type": "string",
-      "javaType": "org.liem.extension.logging.api.pojos.TracePoint",
+      "javaType": "org.mulejoy.extension.logging.api.pojos.TracePoint",
       "enum": [
         "START",
         "BEFORE_TRANSFORM",
@@ -56,7 +56,7 @@
     },
     "priority": {
       "type": "string",
-      "javaType": "org.liem.extension.logging.api.pojos.Priority",
+      "javaType": "org.mulejoy.extension.logging.api.pojos.Priority",
       "enum": [
         "DEBUG",
         "TRACE",
@@ -99,7 +99,7 @@
       "type": "string",
       "javaType": "org.mule.runtime.extension.api.runtime.parameter.ParameterResolver<org.mule.runtime.api.metadata.TypedValue<java.io.InputStream>>",
       "sdk": {
-        "default": "#[import modules::Formatter \noutput application/json \n---\nFormatter::formatNonJSON(payload)]",
+        "default": "#[import modules::Formatter\noutput application/json\n---\nFormatter::formatNonJSON(payload)]",
         "summary": "NOTE: Writing the entire payload every time across your application can cause serious performance issues",
         "required": false,
         "isPrimaryContent": true
@@ -119,7 +119,7 @@
       "type": "string",
       "sdk": {
         "required": false,
-        "summary": "If not set, by default will log to the org.liem.extension.logging.CustomLogger category"
+        "summary": "If not set, by default will log to the org.mulejoy.extension.logging.CustomLogger category"
       },
       "note": "This field is mandatory. DON'T REMOVE"
     }

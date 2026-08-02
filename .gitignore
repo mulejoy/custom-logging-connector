@@ -1,18 +1,30 @@
+# MuleSoft runtime artifacts
 .mule/
+catalog/
+
+# Maven build output
 target/
 target/*
+dependency-reduced-pom.xml
+buildNumber.properties
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
 pom.xml.next
 release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
 .mvn/timing.properties
 /bin/
+
+# IDE — Eclipse / Anypoint Studio
+.project
 .classpath
 .settings/
 .settings/*
-catalog/
+
+# macOS
 .DS_Store
 */.DS_Store
+
+# Environment / secrets — never commit
+.env
+.env.local

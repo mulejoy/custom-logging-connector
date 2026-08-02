@@ -1,4 +1,4 @@
-package org.liem.extension.logging.patterns;
+package org.mulejoy.extension.logging.patterns;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.mule.runtime.extension.api.annotation.param.Content;
@@ -80,7 +80,7 @@ public class HTTP implements IntegrationPattern {
 
     @Override
     public HashMap<String, Object> prepareData() throws IOException {
-        HashMap<String,Object> data = new HashMap<>();
+        HashMap<String, Object> data = new HashMap<>();
         data.put("pattern", this.getSelectedIntegrationPattern());
         data.put("uri", this.getUri());
         data.put("resource", this.getResource());
@@ -93,67 +93,27 @@ public class HTTP implements IntegrationPattern {
         return data;
     }
 
-    public String getUri() {
-        return uri;
-    }
+    public String getUri() { return uri; }
+    public void setUri(String uri) { this.uri = uri; }
 
-    public void setUri(String uri) {
-        this.uri = uri;
-    }
+    public String getResource() { return resource; }
+    public void setResource(String resource) { this.resource = resource; }
 
-    public String getResource() {
-        return resource;
-    }
+    public String getClientId() { return clientId; }
+    public void setClientId(String clientId) { this.clientId = clientId; }
 
-    public void setResource(String resource) {
-        this.resource = resource;
-    }
+    public String getScheme() { return scheme; }
+    public void setScheme(String scheme) { this.scheme = scheme; }
 
-    public String getClientId() {
-        return clientId;
-    }
+    public InputStream getQueryParameters() { return queryParameters; }
+    public void setQueryParameters(InputStream queryParameters) { this.queryParameters = queryParameters; }
 
-    public void setClientId(String clientId) {
-        this.clientId = clientId;
-    }
+    public InputStream getUriParameters() { return uriParameters; }
+    public void setUriParameters(InputStream uriParameters) { this.uriParameters = uriParameters; }
 
-    public String getScheme() {
-        return scheme;
-    }
+    public String getRemoteAddress() { return remoteAddress; }
+    public void setRemoteAddress(String remoteAddress) { this.remoteAddress = remoteAddress; }
 
-    public void setScheme(String scheme) {
-        this.scheme = scheme;
-    }
-
-    public InputStream getQueryParameters() {
-        return queryParameters;
-    }
-
-    public void setQueryParameters(InputStream queryParameters) {
-        this.queryParameters = queryParameters;
-    }
-
-    public InputStream getUriParameters() {
-        return uriParameters;
-    }
-
-    public void setUriParameters(InputStream uriParameters) {
-        this.uriParameters = uriParameters;
-    }
-
-    public String getRemoteAddress() {
-        return remoteAddress;
-    }
-
-    public void setRemoteAddress(String remoteAddress) {
-        this.remoteAddress = remoteAddress;
-    }
-
-    public String getHttpStatus() {
-        return httpStatus;
-    }
-
-    public void setHttpStatus(String httpStatus) {
-        this.httpStatus = httpStatus;
-    }
+    public String getHttpStatus() { return httpStatus; }
+    public void setHttpStatus(String httpStatus) { this.httpStatus = httpStatus; }
 }

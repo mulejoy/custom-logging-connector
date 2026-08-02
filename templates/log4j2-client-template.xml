@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Template: Recommended log4j2.xml for Mule 4 applications using Custom Logging Connector
+  ========================================================================================
+  Place this file at src/main/resources/log4j2.xml in your Mule application.
+
+  Key loggers:
+    org.mulejoy.extension.logging.CustomLogger  — default category for all connector output
+    org.mulejoy.extension.logging               — connector internal diagnostics (set to WARN in prod)
+
+  Adjust the appender and log level to match your environment and log aggregator requirements.
+-->
+<Configuration status="WARN" monitorInterval="60">
+
+    <Appenders>
+
+        <!-- Console output — human-readable in local dev, machine-readable in CI/prod -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%-5p %d [%t] %c: %m%n"/>
+        </Console>
+
+        <!-- Rolling file appender — recommended for production -->
+        <RollingFile name="RollingFile"
+                     fileName="${sys:mule.home}/logs/${sys:app.name}.log"
+                     filePattern="${sys:mule.home}/logs/${sys:app.name}-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout>
+                <Pattern>%m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers>
+
+        <!-- Custom Logging Connector output — this is what your log aggregator ingests -->
+        <AsyncLogger name="org.mulejoy.extension.logging.CustomLogger"
+                     level="INFO"
+                     additivity="false">
+            <AppenderRef ref="RollingFile"/>
+            <AppenderRef ref="Console"/>
+        </AsyncLogger>
+
+        <!-- Connector internals — lower verbosity in production -->
+        <AsyncLogger name="org.mulejoy.extension.logging"
+                     level="WARN"
+                     additivity="false">
+            <AppenderRef ref="Console"/>
+        </AsyncLogger>
+
+        <!-- Mule runtime loggers — adjust as needed -->
+        <AsyncLogger name="org.mule" level="WARN" additivity="false">
+            <AppenderRef ref="Console"/>
+        </AsyncLogger>
+
+        <AsyncLogger name="com.mulesoft" level="WARN" additivity="false">
+            <AppenderRef ref="Console"/>
+        </AsyncLogger>
+
+        <!-- Root logger fallback -->
+        <AsyncRoot level="WARN">
+            <AppenderRef ref="Console"/>
+        </AsyncRoot>
+
+    </Loggers>
+
+</Configuration>

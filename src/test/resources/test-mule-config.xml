@@ -1,19 +1,17 @@
 <mule xmlns="http://www.mulesoft.org/schema/mule/core"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:logging="http://www.mulesoft.org/schema/mule/logging"
+      xmlns:custom-logging="http://www.mulesoft.org/schema/mule/custom-logging"
       xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
-          http://www.mulesoft.org/schema/mule/logging http://www.mulesoft.org/schema/mule/logging/current/mule-logging.xsd">
+          http://www.mulesoft.org/schema/mule/custom-logging http://www.mulesoft.org/schema/mule/custom-logging/current/mule-custom-logging.xsd">
 
-    <logging:config name="config" configId="configId">
-        <logging:connection requiredParameter="aValue" />
-    </logging:config>
+    <custom-logging:config name="Custom_Logging_Connector_Config"
+                           applicationName="test-app"
+                           applicationEnvironment="dev"/>
 
-    <flow name="sayHiFlow">
-        <logging:say-hi person="Mariano Gonzalez"/>
-    </flow>
-
-    <flow name="retrieveInfoFlow">
-        <logging:retrieve-info config-ref="config"/>
+    <flow name="testLoggerFlow">
+        <custom-logging:custom-logger
+            integrationPattern="HTTP"
+            configRef="Custom_Logging_Connector_Config"/>
     </flow>
 
 </mule>

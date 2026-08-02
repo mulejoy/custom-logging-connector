@@ -1,4 +1,4 @@
-package org.liem.extension.logging.exception;
+package org.mulejoy.extension.logging.exception;
 
 import org.mule.runtime.extension.api.error.ErrorTypeDefinition;
 

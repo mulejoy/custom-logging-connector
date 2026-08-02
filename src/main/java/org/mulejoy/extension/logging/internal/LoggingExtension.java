@@ -1,10 +1,10 @@
-package org.liem.extension.logging.internal;
+package org.mulejoy.extension.logging.internal;
 
-import org.liem.extension.logging.exception.LogErrorType;
-import org.liem.extension.logging.patterns.BATCH;
-import org.liem.extension.logging.patterns.HTTP;
-import org.liem.extension.logging.patterns.IntegrationPattern;
-import org.liem.extension.logging.patterns.MESSAGING;
+import org.mulejoy.extension.logging.exception.LogErrorType;
+import org.mulejoy.extension.logging.patterns.BATCH;
+import org.mulejoy.extension.logging.patterns.HTTP;
+import org.mulejoy.extension.logging.patterns.IntegrationPattern;
+import org.mulejoy.extension.logging.patterns.MESSAGING;
 import org.mule.runtime.api.meta.Category;
 import org.mule.runtime.extension.api.annotation.Configurations;
 import org.mule.runtime.extension.api.annotation.Export;
@@ -14,11 +14,6 @@ import org.mule.runtime.extension.api.annotation.dsl.xml.Xml;
 import org.mule.runtime.extension.api.annotation.error.ErrorTypes;
 import org.mule.runtime.extension.api.annotation.license.RequiresEnterpriseLicense;
 
-
-/**
- * This is the main class of an extension, is the entry point from which configurations, connection providers, operations
- * and sources are going to be declared.
- */
 @Extension(
         name = "Custom Logging Connector",
         category = Category.SELECT

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Template: Add Custom Logging Connector to a Mule 4 Application
+  =============================================================
+  Copy the snippets below into your Mule application's pom.xml.
+  Replace YOUR_ANYPOINT_ORG_ID with the Anypoint Organization ID
+  where the connector is published.
+-->
+
+<!-- 1. Add the connector as a dependency -->
+<dependencies>
+    <dependency>
+        <groupId>YOUR_ANYPOINT_ORG_ID</groupId>
+        <artifactId>custom-logging-connector</artifactId>
+        <version>1.0.0</version>
+        <classifier>mule-plugin</classifier>
+    </dependency>
+</dependencies>
+
+<!-- 2. Add Anypoint Exchange as a repository (if not already present) -->
+<repositories>
+    <repository>
+        <id>anypoint-exchange-v3</id>
+        <name>Anypoint Exchange V3</name>
+        <url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
+        <layout>default</layout>
+    </repository>
+</repositories>
+
+<!-- 3. Configure Maven credentials in ~/.m2/settings.xml (not in pom.xml) -->
+<!--
+<servers>
+    <server>
+        <id>anypoint-exchange-v3</id>
+        <username>${anypoint.username}</username>
+        <password>${anypoint.password}</password>
+    </server>
+</servers>
+-->

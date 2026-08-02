@@ -2,11 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>13df8bd1-1b05-4b67-b5ca-b59d64023204</groupId>
+	<!-- TODO: Replace YOUR_ANYPOINT_ORG_ID with the target Anypoint Organization ID before deploying -->
+	<groupId>YOUR_ANYPOINT_ORG_ID</groupId>
 	<artifactId>custom-logging-connector</artifactId>
 	<version>1.0.0</version>
 	<packaging>mule-extension</packaging>
-	<name>Logging Extension</name>
+	<name>Custom Logging Connector</name>
 
 	<parent>
 		<groupId>org.mule.extensions</groupId>
@@ -54,7 +55,7 @@
 					<customAnnotator>org.mule.custom.annotation.utils.CustomMuleAnnotator</customAnnotator>
 					<sourceDirectory>${basedir}/src/main/resources/schema</sourceDirectory>
 					<outputDirectory>${project.build.directory}/generated-sources</outputDirectory>
-					<targetPackage>org.liem.extension.logging.api.pojos</targetPackage>
+					<targetPackage>org.mulejoy.extension.logging.api.pojos</targetPackage>
 				</configuration>
 				<executions>
 					<execution>

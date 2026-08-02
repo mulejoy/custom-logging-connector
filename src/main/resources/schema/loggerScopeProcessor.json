@@ -5,7 +5,7 @@
   "properties": {
     "scopeTracePoint": {
       "type": "string",
-      "javaType": "org.liem.extension.logging.api.pojos.ScopeTracePoint",
+      "javaType": "org.mulejoy.extension.logging.api.pojos.ScopeTracePoint",
       "enum": [
         "DATA_TRANSFORM_SCOPE",
         "OUTBOUND_REQUEST_SCOPE",

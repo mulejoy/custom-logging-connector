@@ -1,13 +1,13 @@
-package org.liem.extension.logging.internal.singleton;
+package org.mulejoy.extension.logging.internal.singleton;
 
-import org.liem.extension.logging.internal.LoggingConfiguration;
+import org.mulejoy.extension.logging.internal.LoggingConfiguration;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class ConfigsSingleton {
 
-    private Map<String, LoggingConfiguration> configs = new HashMap<String, LoggingConfiguration>();
+    private Map<String, LoggingConfiguration> configs = new HashMap<>();
 
     public Map<String, LoggingConfiguration> getConfigs() {
         return configs;
@@ -20,5 +20,4 @@ public class ConfigsSingleton {
     public void addConfig(String configName, LoggingConfiguration config) {
         this.configs.put(configName, config);
     }
-
 }
